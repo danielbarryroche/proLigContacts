@@ -154,7 +154,7 @@ public class proLigContacts
 						//System.out.println(line1);
 						String atominf = line1.substring( 0, 26 );
 						//System.out.println(atominf);
-						String atomtype = atominf.substring(12, 15).trim();
+						String atomtype = atominf.substring(13, 14).trim();
 						//String atomtype = line1.substring(76).trim();
 						
 						//System.out.println( " atomtype " +atomtype );
@@ -171,8 +171,8 @@ public class proLigContacts
 							}
 						}
 						atomtype = atomtypebuf.toString();
-				
-						String ligtype = atominf.substring(17, 21).trim();
+// 				
+						String ligtype = atominf.substring(17, 20).trim();
 						//String ligtype = atominf.substring(76).trim();
 						//System.out.println(" ligtype "+ligtype);
 						int atomnum = (new Integer(atominf.substring(7, 12).trim()));
@@ -200,7 +200,7 @@ public class proLigContacts
 								String line2 = ATOMtoks.nextToken();
 								//System.out.println("line2 " + line2 );
 								String atominf2 = line2.substring( 0, 26 );
-								String atomtype2 = atominf2.substring(12, 14).trim();
+								String atomtype2 = atominf2.substring(13, 14).trim();
 								//String atomtype2 = line2.substring(76).trim();
 								
 								//System.out.println( "atomtype2 " + atomtype2 );
@@ -219,7 +219,7 @@ public class proLigContacts
 								atomtype2 = atomtype2buf.toString();
 								
 								//String restype2 = atominf2.substring(76).trim();
-								String restype2 = atominf2.substring(17, 21).trim();
+								String restype2 = atominf2.substring(17, 20).trim();
 								//System.out.println("restype2 "+restype2);
 								int atomnum2 = (new Integer(atominf2.substring(7, 12).trim()));
 								//System.out.println("atomnum2 "+atomnum2);
@@ -257,26 +257,26 @@ public class proLigContacts
 										if( !bindingResiduesHash.containsKey( new Integer( lignum ) ) )
 										{
 											TreeSet residueSet = new TreeSet();
-											String resi = resnum2+" ";//;+restype2;
-											residueSet.add( resi );
-											//residueSet.add( resnum2 );
+											//String resi = resnum2+" ";//;+restype2;
+											//residueSet.add( resi );
+											residueSet.add( resnum2 );
 											bindingResiduesHash.put( new Integer( lignum ), residueSet );
 /*											
 											TreeSet residueType = new TreeSet();
 											residueType.add( restype2 );
 											bindingResiduesTypeHash.put( new Integer( lignum ), residueType );
 											*/
-											//System.out.println(resnum2 + " " + restype2);
+											//System.out.println("TEST ABC" + resnum2 + " " + restype2);
 										}
 										
 										else if( bindingResiduesHash.containsKey( new Integer( lignum ) ) )
 										{
 											//only count ligand-residue interaction once for same ligand
 											TreeSet residueSet = (TreeSet)bindingResiduesHash.get( new Integer( lignum ) );
-											//Integer resi = resnum2;
-											String resi = resnum2+" ";//+restype2;
+											Integer resi = resnum2;
+											//String resi = resnum2+" ";//+restype2;
 											residueSet.add( resi );
-											//residueSet.add( resnum2 );
+											residueSet.add( resnum2 );
 											bindingResiduesHash.put( new Integer( lignum ), residueSet );
 											
 // 											TreeSet residueType = (TreeSet)bindingResiduesTypeHash.get( new Integer( lignum ) );
@@ -297,10 +297,12 @@ public class proLigContacts
 						}
 					}
 
+					//System.out.println( "TEST END" );
 					//System.out.println( bindingResiduesHash );
-					//System.out.println( "\nType\tBinding residues"); TEMP
-					String pdbid =  pdbfile.substring( 0, pdbfile.indexOf("_") );
-					DataOutputStream out2 = new DataOutputStream( new FileOutputStream(  pdbid+ "_bs.out" ) );
+					System.out.println( "\nType\tBinding residues"); 
+					//String pdbid =  pdbfile.substring( 0, pdbfile.indexOf("_") );
+					//String pdbid = pdbfile;
+					DataOutputStream out2 = new DataOutputStream( new FileOutputStream(  pdbfile+ "_bs.out" ) );
 					
 					for( Enumeration enumer = bindingResiduesHash.keys(); enumer.hasMoreElements(); )
 					{
