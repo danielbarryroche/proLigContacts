@@ -1,0 +1,61 @@
+The proLigContacts method for the determination of ligand binding site residues in a PDB file
+---------------------------------------------------------------------------------------------
+
+Version 1.0 (Mar 2011)
+
+(c) Liam J. McGuffin
+
+Description
+-----------
+
+A method for determining the binding site residues contacting biologically relevant ligands within a PDB file
+
+Installation
+------------
+
+No installation is required for the proLigContacts program itself after you have downloaded the file. The program is provided in the form of an executable jar file (proLigContacts.jar). The instructions below are for Linux (bash) but equivalent commands can be used in other Unix based OSes.
+
+Requirements:
+
+1. A recent version of Java (java.com/getjava/).
+
+
+Running the program
+-------------------
+
+You can simply edit the shell script (proLigContacts.sh) or you can follow the steps below.
+
+1. (optional) Set the bash environment variable for Java, if you have not installed it system wide e.g.
+
+export JAVA_HOME=/home/Liam/jdk1.6.0/
+
+
+2. Run proLigContacts. For example, if your path to the PDB structural files was /home/Liam/PDBFiles/pdb1rq5.ent
+
+$JAVA_HOME/bin/java -jar proLigContacts.jar /home/Liam/PDBFiles/pdb1rq5.ent
+
+Or, if you have java installed system wide:
+
+java -jar proLigContacts.jar /home/Liam/PDBFiles/pdb1rq5.ent
+
+Or, using the shell script provided:
+
+./proLigContacts.sh /home/Liam/PDBFiles/pdb1rq5.ent
+
+IMPORTANT: Please also note that you should use FULL PATHS for your input files
+
+Output
+------
+
+A log of the progress is written to the screen as standard output, which contains the ligands within the PDB file and their associated binding site resiudes.
+
+
+Trouble Shooting
+----------------
+
+Email me: l.j.mcguffin@reading.ac.uk
+
+I will try to respond to your issue as soon as I can!
+
+Thanks,
+Liam
