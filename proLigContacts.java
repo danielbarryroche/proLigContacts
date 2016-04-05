@@ -154,8 +154,8 @@ public class proLigContacts
 						//System.out.println(line1);
 						String atominf = line1.substring( 0, 26 );
 						//System.out.println(atominf);
-						//String atomtype = atominf.substring(12, 15).trim();
-						String atomtype = line1.substring(76).trim();
+						String atomtype = atominf.substring(12, 15).trim();
+						//String atomtype = line1.substring(76).trim();
 						
 						//System.out.println( " atomtype " +atomtype );
 						
@@ -200,8 +200,8 @@ public class proLigContacts
 								String line2 = ATOMtoks.nextToken();
 								//System.out.println("line2 " + line2 );
 								String atominf2 = line2.substring( 0, 26 );
-								//String atomtype2 = atominf2.substring(12, 14).trim();
-								String atomtype2 = line2.substring(76).trim();
+								String atomtype2 = atominf2.substring(12, 14).trim();
+								//String atomtype2 = line2.substring(76).trim();
 								
 								//System.out.println( "atomtype2 " + atomtype2 );
 								
